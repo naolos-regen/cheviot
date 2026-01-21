@@ -7,8 +7,8 @@
 const char* ssid = SSID;
 const char* password = PASSWORD;
 
-const char* mqtt_server = "192.168.1.3";  
-const int mqtt_port = 1883;  
+const char* mqtt_server = "192.168.1.3";
+const int mqtt_port = 1883;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -96,7 +96,7 @@ void loop()
         client.loop();
 
         static unsigned long lastPublish = 0;
-        if (millis() - lastPublish > 5000)    
+        if (millis() - lastPublish > 5000)
         {
                 client.publish("test", "Periodic update from ESP32");
                 lastPublish = millis();
