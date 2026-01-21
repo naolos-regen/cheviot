@@ -1,3 +1,3 @@
 # Cheviot (Cheviots Internet of dings)
 
-[Structure](cheviot.png "hello")
+![Structure](cheviot.png "hello")
