@@ -2,7 +2,7 @@
 #include <string.h>
 
 #include "include/MQTTClient.h"
-#include "../shared/priv/broker_vars.h"
+#include "../shared/broker_vars.h"
 
 void set_will_opts(MQTTClient_willOptions *will_opts)
 {
