@@ -15,19 +15,19 @@ void (*handler[MQTT_EVENT_LENGTH])
 	 	esp_mqtt_client_handle_t,
 	 	int *
 ) = {
-	[MQTT_EVENT_ANY+1]			= mqtt_event_any_handler,
-	[MQTT_EVENT_ERROR+1]			= mqtt_event_error_handler,
-	[MQTT_EVENT_CONNECTED+1]		= mqtt_event_connected_handler,
-	[MQTT_EVENT_DISCONNECTED+1]		= mqtt_event_disconnected_handler,
-	[MQTT_EVENT_SUBSCRIBED+1]		= mqtt_event_subscribed_handler,
-	[MQTT_EVENT_UNSUBSCRIBED+1]		= mqtt_event_unsubscribed_handler,
-	[MQTT_EVENT_PUBLISHED+1]		= mqtt_event_published_handler,
-	[MQTT_EVENT_DATA+1]			= mqtt_event_data_handler,
-	[MQTT_EVENT_BEFORE_CONNECT+1]		= mqtt_event_before_connect_handler,
-	[MQTT_EVENT_DELETED+1]			= mqtt_event_deleted_handler,
-	[MQTT_USER_EVENT+1]			= mqtt_user_event_handler,
+	// MQTT_EVENT needs to add OFFSET, because MQTT_EVENT_ANY starts at -1
+	[MQTT_EVENT_ANY			+ OFFSET] = mqtt_event_any_handler,
+	[MQTT_EVENT_ERROR		+ OFFSET] = mqtt_event_error_handler,
+	[MQTT_EVENT_CONNECTED		+ OFFSET] = mqtt_event_connected_handler,
+	[MQTT_EVENT_DISCONNECTED	+ OFFSET] = mqtt_event_disconnected_handler,
+	[MQTT_EVENT_SUBSCRIBED		+ OFFSET] = mqtt_event_subscribed_handler,
+	[MQTT_EVENT_UNSUBSCRIBED	+ OFFSET] = mqtt_event_unsubscribed_handler,
+	[MQTT_EVENT_PUBLISHED		+ OFFSET] = mqtt_event_published_handler,
+	[MQTT_EVENT_DATA		+ OFFSET] = mqtt_event_data_handler,
+	[MQTT_EVENT_BEFORE_CONNECT	+ OFFSET] = mqtt_event_before_connect_handler,
+	[MQTT_EVENT_DELETED		+ OFFSET] = mqtt_event_deleted_handler,
+	[MQTT_USER_EVENT		+ OFFSET] = mqtt_user_event_handler,
 };
-
 
 void mqtt_event_any_handler(esp_mqtt_event_handle_t event, esp_mqtt_client_handle_t client, int* msg_id)
 {

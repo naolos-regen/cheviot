@@ -4,6 +4,7 @@
 #include <mqtt_ws.h>
 
 #define MQTT_EVENT_LENGTH 11
+#define OFFSET 1
 #define TAG_MQTT_WS "mqtt_events"
 
 extern void (*handler[MQTT_EVENT_LENGTH])	(esp_mqtt_event_handle_t, esp_mqtt_client_handle_t, int *);
