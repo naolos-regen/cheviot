@@ -15,6 +15,7 @@ mqtt_event_handler
 	esp_mqtt_event_handle_t event =  (esp_mqtt_event_handle_t) event_data;
 	esp_mqtt_client_handle_t client = event->client;
 	int msg_id;
+	handler[((esp_mqtt_event_id_t) event_id) + 1](event, client, &msg_id);
 }
 
 static inline void
