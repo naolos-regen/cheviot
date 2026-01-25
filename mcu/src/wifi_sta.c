@@ -26,7 +26,7 @@ event_handler(void * arguments, esp_event_base_t event_base,
 	}
 }
 
-static void
+static inline void
 esp_event_handler_any_instance(esp_event_handler_instance_t * instance_any_id)
 {
 	ESP_ERROR_CHECK
@@ -42,7 +42,7 @@ esp_event_handler_any_instance(esp_event_handler_instance_t * instance_any_id)
 	);
 }
 
-static void
+static inline void
 esp_event_handler_ip_instance(esp_event_handler_instance_t * instance_got_ip)
 {
 	ESP_ERROR_CHECK
