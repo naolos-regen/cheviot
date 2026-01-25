@@ -38,13 +38,17 @@ mqtt_init(void)
 {
 	const esp_mqtt_client_config_t mqtt_config =
 	{
-			.broker.address.hostname = HOSTNAME,
-			.broker.address.port	 = PORT_NUM
+		.broker.address.uri = "mqtt://192.168.1.3",
 	};
-
+	ESP_LOGI(TAG, "initializing mqtt client");
 	esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_config);
 	register_client_event(client);
-	esp_mqtt_client_start(client);
 
+	int msg_id;
+	msg_id = esp_mqtt_client_enqueue(client, "test", "data", 0, 1, 0, true);
+	ESP_LOGI(TAG, "MQTT Client id=%d", msg_id);
+	msg_id = esp_mqtt_client_enqueue(client, "test", "Cheviot Sheep", 0, 1, 0, true);
+	ESP_LOGI(TAG, "MQTT Client id=%d", msg_id);
+	esp_mqtt_client_start(client);
 }
 

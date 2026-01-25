@@ -11,4 +11,6 @@
 #include <esp_log.h>
 #include "../../shared/cheviot_ip.h"
 
+void mqtt_init (void);
+
 #endif //MCU_MQTT_CLIENT_H
