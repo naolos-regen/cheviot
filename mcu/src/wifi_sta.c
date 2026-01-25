@@ -1,5 +1,7 @@
 #include <wifi_sta.h>
 
+#include "mqtt_ws.h"
+
 static uint8_t _s_retry_number = 0;
 
 void
@@ -23,6 +25,10 @@ event_handler(void * arguments, esp_event_base_t event_base,
 		ip_event_got_ip_t *ip_event = (ip_event_got_ip_t *) event_data;
 		ESP_LOGI("wifi_sta", "got ip: " IPSTR, IP2STR(&ip_event->ip_info.ip));
 		_s_retry_number = 0;
+
+		ESP_LOGI("wifi_sta", "ESP_MQTT_WS");
+		mqtt_init();
+
 	}
 }
 

@@ -8,7 +8,7 @@
 
 #define MAX_RETRY 10
 
-extern void wifi_init_sta();
+extern void wifi_init_sta(void);
 extern void event_handler(void *, esp_event_base_t, int32_t, void *);
 
 #endif //MCU_WIFI_STA_H
