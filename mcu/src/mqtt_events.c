@@ -52,7 +52,7 @@ void mqtt_event_connected_handler(esp_mqtt_event_handle_t event, esp_mqtt_client
 	ESP_LOGI(TAG_MQTT_WS, "mqtt event connected handler");
 	*msg_id = esp_mqtt_client_publish(client, "topic", "data", 0, 1, 0);
 	ESP_LOGI(TAG_MQTT_WS, "send publish successful, msg_id=%d", *msg_id);
-	*msg_id = esp_mqtt_client_subscribe(client, "topic", *msg_id);
+	*msg_id = esp_mqtt_client_subscribe(client, "topic", 0);
 	ESP_LOGI(TAG_MQTT_WS, "send subscribe successful, msg_id=%d", *msg_id);
 }
 
