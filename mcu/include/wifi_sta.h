@@ -2,9 +2,7 @@
 #define MCU_WIFI_STA_H
 
 #include <esp_wifi.h>
-#include <credentials.h>
 #include <esp_event_base.h>
-#include <esp_log.h>
 
 #define MAX_RETRY 10
 

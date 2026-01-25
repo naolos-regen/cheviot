@@ -1,4 +1,5 @@
 #include <wifi_sta.h>
+#include <esp_log.h>
 
 #include "mqtt_ws.h"
 

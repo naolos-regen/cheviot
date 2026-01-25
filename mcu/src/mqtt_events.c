@@ -1,4 +1,5 @@
 #include <mqtt_events.h>
+#include <esp_log.h>
 
 static void
 log_error_if_nonzero(const char* msg, const int error_id)

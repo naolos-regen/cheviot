@@ -1,8 +1,6 @@
 #include <nvs_flash.h>
 #include <wifi_sta.h>
-#include <mqtt_ws.h>
-
-#include "../include/credentials.h"
+#include <esp_log.h>
 
 static const char* TAG = "cheviot_mcu";
 

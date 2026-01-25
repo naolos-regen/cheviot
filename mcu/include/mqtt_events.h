@@ -1,9 +1,9 @@
 #ifndef MCU_MQTT_EVENTS_H
 #define MCU_MQTT_EVENTS_H
 
-#include <mqtt_ws.h>
+#include <mqtt_client.h>
 
-#define MQTT_EVENT_LENGTH 11
+#define MQTT_EVENT_LENGTH (MQTT_USER_EVENT - MQTT_EVENT_ANY + 1)
 #define OFFSET 1
 #define TAG_MQTT_WS "mqtt_events"
 

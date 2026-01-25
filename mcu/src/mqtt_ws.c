@@ -1,5 +1,6 @@
 #include <mqtt_ws.h>
 #include <mqtt_events.h>
+#include <esp_log.h>
 
 #define TAG "mqtt_ws"
 
