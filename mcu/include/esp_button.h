@@ -14,18 +14,18 @@
 // 4B sadly
 enum button_state
 {
-	PRESSED				= 0,
-	RELEASED			= 1,
+	PRESSED			= 0,
+	RELEASED		= 1,
 };
 
 // 4B
 enum button_event_type
 {
-	BUTTON_UP			= 0,
-	BUTTON_DOWN			= 1,
+	BUTTON_UP		= 0,
+	BUTTON_DOWN		= 1,
 	BUTTON_PRESS		= 2,
 	BUTTON_LONG_PRESS	= 3,
-	BUTTON_HELD			= 4,
+	BUTTON_HELD		= 4,
 	BUTTON_RELEASE		= 5
 };
 
@@ -61,10 +61,10 @@ struct button
 };
 
 /* TODO: We need to combine run wifi thread separately of button+mqtt
- *		 Scenario: Wi-Fi loses connection, what happens to button+mqtt?
- *		 Probably: button+mqtt should collect the messages into queue,
+ *			Scenario: Wi-Fi loses connection, what happens to button+mqtt?
+ *			Probably: button+mqtt should collect the messages into queue,
  *				   and collect the time events were send.
- *	     Solution: Separate runs, Wi-Fi & Mqtt+Button.
+ *			Solution: Separate runs, Wi-Fi & Mqtt+Button.
  *				   Both send messages to each other via one EventManager tunnel.
  *				   There needs to be a collection of messages within esp32.
  */
