@@ -29,7 +29,7 @@ enum button_event_type
 	BUTTON_RELEASE		= 5
 };
 
-// 4B + 4B + 1B => 9B
+// 4B + 4B + 1B => 12B
 struct button_info
 {
 	const char *name;
@@ -37,7 +37,7 @@ struct button_info
 	const bool inverted;
 };
 
-// 49B
+// 52B
 struct button
 {
 	// 9B
