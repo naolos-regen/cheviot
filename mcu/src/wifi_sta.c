@@ -1,6 +1,7 @@
 #include <wifi_sta.h>
 #include <esp_log.h>
 #include <credentials.h>
+#include <shared_state.h>
 
 #include "mqtt_ws.h"
 
@@ -21,6 +22,7 @@ event_handler(void * arguments, esp_event_base_t event_base,
 			esp_wifi_connect();
 			_s_retry_number++;
 		}
+		esp_mqtt_client_stop(state.mqtt_client);
 	}
 	else if (IP_EVENT == event_base && IP_EVENT_STA_GOT_IP == event_id)
 	{
@@ -29,12 +31,13 @@ event_handler(void * arguments, esp_event_base_t event_base,
 		_s_retry_number = 0;
 
 		ESP_LOGI("wifi_sta", "ESP_MQTT_WS");
-		mqtt_init();
 
+		// TODO: add start mqtt here
+		esp_mqtt_client_start(state.mqtt_client);
 	}
 }
 
-static inline void
+inline void
 esp_event_handler_any_instance(esp_event_handler_instance_t * instance_any_id)
 {
 	ESP_ERROR_CHECK
@@ -50,7 +53,7 @@ esp_event_handler_any_instance(esp_event_handler_instance_t * instance_any_id)
 	);
 }
 
-static inline void
+inline void
 esp_event_handler_ip_instance(esp_event_handler_instance_t * instance_got_ip)
 {
 	ESP_ERROR_CHECK
