@@ -68,3 +68,4 @@ init_shared_state (void)
 	ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &state.wifi_config));
 	ESP_ERROR_CHECK(esp_wifi_start());
 }
+

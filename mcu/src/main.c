@@ -1,6 +1,7 @@
 #include <nvs_flash.h>
 #include <wifi_sta.h>
 #include <esp_log.h>
+#include <shared_state.h>
 
 static const char* TAG = "cheviot_mcu";
 
@@ -21,5 +22,6 @@ app_main(void)
 	}
 
 	ESP_LOGI(TAG, "ESP_WIFI_MODE_STA");
-	wifi_init_sta ();
+	init_shared_state ();
 }
+

@@ -69,32 +69,3 @@ esp_event_handler_ip_instance(esp_event_handler_instance_t * instance_got_ip)
 	);
 }
 
-void
-wifi_init_sta(void)
-{
-	ESP_ERROR_CHECK(esp_netif_init());
-	ESP_ERROR_CHECK(esp_event_loop_create_default());
-
-	esp_netif_create_default_wifi_sta();
-
-	wifi_init_config_t config = WIFI_INIT_CONFIG_DEFAULT();
-	ESP_ERROR_CHECK(esp_wifi_init(&config));
-
-	esp_event_handler_instance_t instance_any_id;
-	esp_event_handler_instance_t instance_got_ip;
-
-	esp_event_handler_any_instance(&instance_any_id);
-	esp_event_handler_ip_instance(&instance_got_ip);
-
-	wifi_config_t wifi_config = {
-		.sta = {
-			.ssid = WIFI_SSID,
-			.password = WIFI_PASS,
-			.threshold.authmode = WIFI_AUTH_WPA2_PSK
-		}
-	};
-
-	ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-	ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
-	ESP_ERROR_CHECK(esp_wifi_start());
-}

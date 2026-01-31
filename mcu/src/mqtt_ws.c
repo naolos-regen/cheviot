@@ -34,4 +34,3 @@ register_client_event(esp_mqtt_client_handle_t * client)
 	);
 }
 
-
